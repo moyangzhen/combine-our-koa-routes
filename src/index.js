@@ -1,10 +1,17 @@
-const koa=require('koa');
-const path=require('path')
+// const koa=require('koa');
+// const path=require('path')
+import koa from 'koa'
+import path from 'path'
 const app=new koa();
-const router=require('./routes/routes')
-const cors=require('koa2-cors');
-const helmet=require('koa-helmet')
-const statics=require('koa-static')
+// const router=require('./routes/routes')
+
+// const cors=require('koa2-cors');
+import cors from 'koa2-cors';
+// const helmet=require('koa-helmet')
+// const statics=require('koa-static')
+import router from './routes/routes';
+import helmet from 'koa-helmet'
+import statics from 'koa-static'
 app.use(cors({
     origin: function (ctx) {
         // if (ctx.url === '/test') {
