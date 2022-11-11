@@ -17,3 +17,5 @@
 2.npx node --inspect-brk ./node_modules/.bin/webpack 因为webpack是commonjs的规范
 ### 
 ./node_modules/.bin/webpack --progress可以看到执行的过程,在webpackconfig之前打一个断点，在export前console.log一下，chrome浏览器导航栏中输入chrome://inspect/#devices 点击inspect弹出,点击运行，然后到控制台可以看到基本的配置
+###
+3.在vscode中添加launch.json,点击vscode左侧三角小虫子按钮，add configuration添加一个脚本，输入nodemon,弹出提示，点击nodemon进行配置

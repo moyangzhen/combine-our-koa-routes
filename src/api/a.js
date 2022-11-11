@@ -1,7 +1,7 @@
 
 function a(ctx){
     ctx.body={
-        "message":"hello form a."
+        "message":"hello form a...!!"
     }
 }
 module.exports={
