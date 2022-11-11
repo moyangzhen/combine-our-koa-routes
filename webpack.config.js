@@ -1,6 +1,7 @@
 const path=require('path')
 const nodeExternals=require('webpack-node-externals')
 const {CleanWebpackPlugin}=require('clean-webpack-plugin')
+debugger
 const webpackconfig={
     target:"node",
     mode:'development',
@@ -31,7 +32,14 @@ const webpackconfig={
     ],
     node:{
         console:true,
-        global:true
+        global:true,
+        process:true,
+        Buffer:true,
+        __filename:true,
+        __dirname:true,
+        setImmediate:true,
+        path:true
     }
 }
+console.log(webpackconfig)
 module.exports=webpackconfig
