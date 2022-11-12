@@ -3,7 +3,6 @@ import koa from 'koa'
 import path from 'path'
 import koaBody from 'koa-body';
 import jsonutil from 'koa-json';
-import koaCors from '@koa/cors';
 import compose from 'koa-compose'
 import cors from 'koa2-cors';
 import router from './routes/routes';
