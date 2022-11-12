@@ -1,31 +1,28 @@
-// const koa=require('koa');
-// const path=require('path')
+
 import koa from 'koa'
 import path from 'path'
-const app=new koa();
-// const router=require('./routes/routes')
-
-// const cors=require('koa2-cors');
+import koaBody from 'koa-body';
+import jsonutil from 'koa-json';
+import koaCors from '@koa/cors';
+import compose from 'koa-compose'
 import cors from 'koa2-cors';
-// const helmet=require('koa-helmet')
-// const statics=require('koa-static')
 import router from './routes/routes';
 import helmet from 'koa-helmet'
 import statics from 'koa-static'
-app.use(cors({
-    origin: function (ctx) {
-        // if (ctx.url === '/test') {
-            return "*"; // 允许来自所有域名请求
-        // }
-        // return "http://localhost:8080"; // 这样就能只允许 http://localhost:8080 这个域名的请求了
-    },
-    exposeHeaders: ['WWW-Authenticate', 'Server-Authorization'],
-    maxAge: 5,
-    credentials: true, // 当设置成允许请求携带cookie时，需要保证"Access-Control-Allow-Origin"是服务器有的域名，而不能是"*";
-    allowMethods: ['GET', 'POST', 'DELETE'],
-    allowHeaders: ['Content-Type', 'Authorization', 'Accept'],
-}))
-app.use(helmet())
-app.use(statics(path.join(__dirname,'../public')))
+import compress from 'koa-compress'
+const app=new koa();
+const isDevMode=(process.env.NODE_ENV==='production'?false:true)
+const middleware=compose([
+    koaBody(),
+    statics(path.join(__dirname,'../public')),
+    cors(),
+    jsonutil({pretty:false,param:'pretty'}),
+    helmet()
+
+])
+if(!isDevMode){
+    app.use(compress())
+}
+app.use(middleware)
 app.use(router())
 app.listen(3000)
