@@ -25,7 +25,8 @@
     "koa-json": "^2.0.2",
     "koa-router": "^7.4.0",
     "koa-static": "5.0.0",
-    "koa2-cors": "^2.0.6"
+    "koa2-cors": "^2.0.6",
+    "svg-captcha": "1.4.0"
   },
   "devDependencies": {
     "@babel/core": "^7.5.5",
