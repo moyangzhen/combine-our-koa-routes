@@ -28,7 +28,9 @@
     "koa2-cors": "^2.0.6",
     "moment": "2.24.0",
     "nodemailer": "6.3.0",
-    "svg-captcha": "1.4.0"
+    "svg-captcha": "1.4.0",
+    "mongoose": "^5.7.1",
+    "saslprep": "^1.0.3"
   },
   "devDependencies": {
     "@babel/core": "^7.5.5",
