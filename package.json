@@ -16,6 +16,7 @@
   "license": "ISC",
   "dependencies": {
     "@koa/cors": "^3.0.0",
+    "bluebird": "^3.7.0",
     "koa": "^2.7.0",
     "koa-body": "^4.1.0",
     "koa-combine-routers": "^4.0.2",
@@ -27,10 +28,11 @@
     "koa-static": "5.0.0",
     "koa2-cors": "^2.0.6",
     "moment": "2.24.0",
-    "nodemailer": "6.3.0",
-    "svg-captcha": "1.4.0",
     "mongoose": "^5.7.1",
-    "saslprep": "^1.0.3"
+    "nodemailer": "6.3.0",
+    "redis": "^2.8.0",
+    "saslprep": "^1.0.3",
+    "svg-captcha": "1.4.0"
   },
   "devDependencies": {
     "@babel/core": "^7.5.5",
