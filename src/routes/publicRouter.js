@@ -1,5 +1,6 @@
-import Router from 'koa-router';
-import publicController from '../api/PublicController';
+import Router from "koa-router";
+import publicController from "../api/PublicController";
 const router = new Router();
-router.get('/getCaptcha', publicController.getCaptcha);
+router.prefix("/public");
+router.get("/getCaptcha", publicController.getCaptcha);
 export default router;

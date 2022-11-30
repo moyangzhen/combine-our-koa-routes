@@ -1,6 +1,6 @@
 import redis from "redis";
 import { promisifyAll } from "bluebird";
-import * as config from "./index";
+import config from "./index";
 const options = {
   host: config.REDIS.host,
   port: config.REDIS.port,
@@ -29,12 +29,16 @@ const client = promisifyAll(redis.createClient(options));
 client.on("error", (err) => {
   console.log("Redis client error" + err);
 });
-const setValue = (key, value) => {
+const setValue = (key, value, time) => {
   if (typeof value === "undefined" || value == null || value === "") {
     return;
   }
   if (typeof value === "string") {
-    return client.set(key, value);
+    if (typeof time !== "undefine") {
+      client.set(key, value, "EX", time);
+    } else {
+      client.set(key, value);
+    }
   } else if (typeof value === "object") {
     Object.keys(value).forEach((item) => {
       client.hset(key, item, value[item], redis.print);

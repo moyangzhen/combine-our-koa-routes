@@ -34,4 +34,4 @@ const deleteMethods = async () => {
   const result = await User.deleteOne({ name: "brian" });
   console.log(result);
 };
-deleteMethods();
+// deleteMethods();
