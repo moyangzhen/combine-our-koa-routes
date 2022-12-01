@@ -12,7 +12,7 @@ import compress from "koa-compress";
 import config from "./config/index";
 import errorHandle from "./common/ErrorHandle";
 const app = new koa();
-const isDevMode = process.env.NODE_ENV === "production" ? false : true;
+const isDevMode = process.env.NODE_ENV == "production" ? false : true;
 // 定义公共路径，不需要jwt鉴权
 const jwt = JWT({ secret: config.JWT_SECRET }).unless({
   path: [/^\/public/, /\/login/],

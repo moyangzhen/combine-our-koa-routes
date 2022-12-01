@@ -1,4 +1,4 @@
-import User from "./test";
+import User from "./User";
 
 // 增
 const user = {

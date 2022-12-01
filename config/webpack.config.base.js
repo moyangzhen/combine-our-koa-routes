@@ -14,7 +14,9 @@ const webpackconfig = {
     path: utils.DIST_PATH,
   },
   resolve: {
-    ...utils.getWebpackResolveConfig(),
+    alias: {
+      "@": utils.APP_PATH,
+    },
   },
   module: {
     rules: [

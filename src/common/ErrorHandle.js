@@ -7,7 +7,14 @@ export default (ctx, next) => {
         msg: "Protect resource, use Authorization header to get access\n",
       };
     } else {
-      throw err;
+      ctx.status = err.status || 500;
+      ctx.body = {
+        code: 500,
+        msg:
+          process.env.NODE_ENV === "development" || "dev"
+            ? { stack: err.stack }
+            : err.message,
+      };
     }
   });
 };
