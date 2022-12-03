@@ -28,15 +28,22 @@ class LoginController {
   async login(ctx) {
     //接受用户的数据
     //返回token
-    const { body } = ctx.request;
-    let sid = body.sid;
-    let code = body.code;
+    // const { body } = ctx.request;
+    const body = {
+      username: "brian@toimc.com",
+      password: "123456",
+      sid: "0fa2b2e3-3f87-4e37-b99e-1446d68b4f10",
+      code: "h8vw",
+    };
+    // let sid = body.sid;
+    // let code = body.code;
     //验证图片验证码的时效性，正确性
-    let result = await checkCode(sid, code);
+    let result = await checkCode(body.sid, body.code);
     if (result) {
       //验证用户账号的密码是否正确
       let checkUserPasswd = false;
       let user = await User.findOne({ username: body.username });
+      console.log(user, "user");
       if (user.password === body.password) {
         checkUserPasswd = true;
       }

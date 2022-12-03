@@ -18,7 +18,9 @@ const jwt = JWT({ secret: config.JWT_SECRET }).unless({
   path: [/^\/public/, /\/login/],
 });
 const middleware = compose([
-  koaBody(),
+  koaBody({
+    multipart: true,
+  }),
   statics(path.join(__dirname, "../public")),
   cors(),
   jsonutil({ pretty: false, param: "pretty" }),
